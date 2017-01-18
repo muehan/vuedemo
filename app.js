@@ -38,11 +38,27 @@ var app4 = new Vue({
             this.message = this.message.split('').reverse().join('')
         }
     }
-})
+});
 
 var app5 = new Vue({
     el: "#app5",
     data: {
         message: "asdf"
+    }
+});
+
+Vue.component('todo-item', {
+    props: ['todo'],
+    template: '<li>{{ todo.text }}</li>'
+});
+
+var app6 = new Vue({
+    el: '#app6',
+    data: {
+        groceryList: [
+            { text: "eggs" },
+            { text: "milk" },
+            { text: "fish" }
+        ]
     }
 })

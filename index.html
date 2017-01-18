@@ -33,6 +33,10 @@
             <input type="text" v-model="message" />
             <p>{{message}}</p>
         </div>
+
+        <div id="app6" class="jumbotron">
+            <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
+        </div>
     </div>
 
     <script src=" /bower_components/vue/dist/vue.js "></script>
