@@ -2,16 +2,41 @@
 
 <head>
     <title>vue demo</title>
+    <link href="bower_components\bootstrap\dist\css\bootstrap.css" rel="stylesheet" />
 </head>
 
 <body>
+    <div class="container">
+        <div id="app1" class="jumbotron">
+            {{ message }}
+        </div>
 
-    <div id="app">
-        {{ message }}
+        <div id="app2" class="jumbotron">
+            <p v-if="seen">seen me</p>
+            <button class="btn btn-primary" v-on:click="hide">click me</button>
+        </div>
+
+        <div id="app3" class="jumbotron">
+            <ul>
+                <li v-for=" todo in todos ">
+                    {{todo.text}}
+                </li>
+            </ul>
+        </div>
+
+        <div id="app4" class="jumbotron">
+            <p>{{ message }}</p>
+            <button class="btn btn-primary" v-on:click="reverseMessage">Reverse Message</button>
+        </div>
+
+        <div id="app5" class="jumbotron">
+            <input type="text" v-model="message" />
+            <p>{{message}}</p>
+        </div>
     </div>
 
-    <script src="/bower_components/vue/dist/vue.js"></script>
-    <script src="app.js"></script>
+    <script src=" /bower_components/vue/dist/vue.js "></script>
+    <script src="app.js "></script>
 </body>
 
 </html>
