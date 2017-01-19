@@ -1,3 +1,3 @@
 # vuedemo
 
-some Vue test to see how it works in general
+some Vue tests to see how it works in general
