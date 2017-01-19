@@ -79,3 +79,24 @@ var app7 = new Vue({
         }
     }
 })
+
+var customerApp = new Vue({
+    el: "#customerApp",
+    data:{
+        searchText: "",
+        customer: "",
+        found: false
+    },
+    methods: {
+        searchCustomer: function(){
+            this.$http.get('someurl'+this.searchText).then((response) => {
+                this.customer = response.body;
+                this.found = true;
+            }, (response) => {
+                //error
+                alert("error: " + response.message);
+                this.found = false;
+            })
+        }
+    }
+})

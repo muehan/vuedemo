@@ -43,9 +43,22 @@
             <button v-on:click="addItem" class="btn btn-primary">Add</button>
             <todo-item v-for="item in todos" v-bind:todo="item"></todo-item>
         </div>
+
+        <div id="customerApp" class="jumbotron">
+            <input v-model="searchText" />
+            <button v-on:click="searchCustomer">Search Customer</button>
+            <div v-if="found">
+                <h2>See the customer here:</h2>
+                <p><b>Name: </b>{{customer.Name}}</p>
+                <p><b>AircraftType: </b>{{customer.AircraftType}}</p>
+                <p><b>Role: </b>{{customer.Role}}</p>
+                <p><b>SupportDepartment: </b>{{customer.SupportDepartment}}</p>
+            </div>
+        </div>
     </div>
 
-    <script src=" /bower_components/vue/dist/vue.js "></script>
+    <script src="bower_components/vue/dist/vue.js"></script>
+    <script src="bower_components/vue-resource/dist/vue-resource.js"></script>
     <script src="app.js "></script>
 </body>
 
