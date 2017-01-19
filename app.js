@@ -62,3 +62,20 @@ var app6 = new Vue({
         ]
     }
 })
+
+var app7 = new Vue({
+    el: "#app7",
+    data: {
+        newItem: "",
+        todos: [
+            { text: "Paddel a Robin"},
+            { text: "drink more cooffee"}
+        ]
+    },
+    methods: {
+        addItem: function(item){
+            this.todos.push({ text: item });
+            this.newItem = "";
+        }
+    }
+})

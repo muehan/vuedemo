@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" style="margin-top: 25px;">
         <div id="app1" class="jumbotron">
             {{ message }}
         </div>
@@ -36,6 +36,12 @@
 
         <div id="app6" class="jumbotron">
             <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
+        </div>
+
+        <div id="app7" class="jumbotron">
+            <input id="addToDo" v-model="newItem" />
+            <button v-on:click="addItem(newItem)">Add</button>
+            <todo-item v-for="item in todos" v-bind:todo="item"></todo-item>
         </div>
     </div>
 
