@@ -73,8 +73,8 @@ var app7 = new Vue({
         ]
     },
     methods: {
-        addItem: function(item){
-            this.todos.push({ text: item });
+        addItem: function(){
+            this.todos.push({ text: this.newItem });
             this.newItem = "";
         }
     }
