@@ -68,12 +68,12 @@ var app7 = new Vue({
     data: {
         newItem: "",
         todos: [
-            { text: "Paddel a Robin"},
-            { text: "drink more cooffee"}
+            { text: "Paddel a Robin" },
+            { text: "drink more cooffee" }
         ]
     },
     methods: {
-        addItem: function(){
+        addItem: function() {
             this.todos.push({ text: this.newItem });
             this.newItem = "";
         }
@@ -82,20 +82,48 @@ var app7 = new Vue({
 
 var customerApp = new Vue({
     el: "#customerApp",
-    data:{
+    data: {
         searchText: "",
         customer: "",
         found: false
     },
     methods: {
-        searchCustomer: function(){
-            this.$http.get('someurl'+this.searchText).then((response) => {
+        searchCustomer: function() {
+            this.$http.get('http://someUrl' + this.searchText).then((response) => {
                 this.customer = response.body;
                 this.found = true;
             }, (response) => {
                 //error
                 alert("error: " + response.message);
                 this.found = false;
+            })
+        }
+    }
+})
+
+// Vue.http.headers.common['Authorization'] = 'Basic someToken';
+// Vue.http.options.root = '/root';
+
+var jiraApp = new Vue({
+    http: {
+        root: "https:/someUrl",
+        headers: {
+            Authorization: "Basic someToken=="
+        }
+    },
+    el: "#jiraApp",
+    data: {
+        // basicToken: "Basic someToken",
+        issue: null
+    },
+    methods: {
+        callJira: function() {
+            this.$http.get('issue/key').then((successResponse) => {
+
+                this.issue = successResponse.body;
+
+            }, (errorResponse) => {
+                alert('error');
             })
         }
     }

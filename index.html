@@ -55,11 +55,22 @@
                 <p><b>SupportDepartment: </b>{{customer.SupportDepartment}}</p>
             </div>
         </div>
+
+        <div id="jiraApp" class="jumbotron">
+            <button v-on:click="callJira">Give me an issue</button>
+            <div v-if="issue != null">
+                <h2>See the Issue information here:</h2>
+                <p><b>issueKey: </b>{{issue.key}}</p>
+                <p><b>Summary: </b>{{issue.fields.summary}}</p>
+                <p><b>IssueType: </b>{{issue.fields.issuetype.name}}</p>
+            </div>
+        </div>
     </div>
 
     <script src="bower_components/vue/dist/vue.js"></script>
     <script src="bower_components/vue-resource/dist/vue-resource.js"></script>
     <script src="app.js "></script>
+
 </body>
 
 </html>
