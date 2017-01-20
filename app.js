@@ -119,9 +119,7 @@ var jiraApp = new Vue({
     methods: {
         callJira: function() {
             this.$http.get('issue/key').then((successResponse) => {
-
                 this.issue = successResponse.body;
-
             }, (errorResponse) => {
                 alert('error');
             })
